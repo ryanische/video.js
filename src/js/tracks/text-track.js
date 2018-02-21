@@ -30,7 +30,8 @@ const parseCues = function(srcContent, track) {
   const errors = [];
 
   parser.oncue = function(cue) {
-    track.addCue(cue);
+    track.cues_.push(cue);
+    track.cues.setCues_(track.cues_);
   };
 
   parser.onparsingerror = function(error) {
